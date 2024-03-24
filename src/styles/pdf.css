@@ -1,0 +1,395 @@
+/* 
+@media all {
+  .page-break {
+    display: none;
+  }
+}
+
+@media print {
+  html, body {
+    height: initial !important;
+    overflow: initial !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+@media print {
+  .page-break {
+    margin-top: 1rem;
+    display: block;
+    page-break-before: auto;
+  }
+}
+
+@page {
+  size: auto;
+  margin: 20mm;
+}
+
+.pdf-layout {
+    width: 100%;
+    padding: 90px 0; 
+     display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+
+.pdf-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.pdf-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-direction: row;
+    direction: rtl;
+    text-align: center;
+}
+
+.pdf-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.pdf-logo img {
+    width: 100%;
+}
+
+
+
+.pdf-table th{
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    background-image: unset;
+}
+
+.tab-container {
+    width: 100%;
+}
+
+.pdf-table td {
+    background-color: white;
+    border: 2px solid black;
+}
+
+.pdf-tail {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.pdf-tail img {
+    width: 200px;
+    height: 200px;
+}
+
+.pdf-footer {
+    margin-top: 20px;
+    gap: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.ticket {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+} */
+
+@media print {
+  html,
+  body {
+    height: initial !important;
+    overflow: initial !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    /* padding: 0 20px 0 20px; */
+  }
+}
+
+@media print {
+  .page-break {
+    margin-top: 1rem;
+    display: block;
+    page-break-before: auto;
+  }
+}
+
+.pdf-line {
+  height: 5px;
+  background-color: black;
+  /* margin-top: 15px; */
+  width: 100%;
+}
+@page {
+  size: A4;
+}
+
+.invoice-box {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  color: #555;
+}
+
+.invoice-box table {
+  width: 100%;
+  line-height: inherit;
+  text-align: right;
+}
+
+.invoice-box table tr td:nth-child(7) {
+  text-align: right;
+}
+
+.invoice-box table tr.top-table table td.title {
+  font-size: 45px;
+  line-height: 25px;
+  color: #333;
+}
+
+.invoice-box table tr.heading td {
+  background: #eee !important;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.invoice-box table tr.item td {
+  border-bottom: 1px solid #eee;
+}
+
+.invoice-box table tr.item.last td {
+  border-bottom: none;
+}
+
+.invoice-box table tr.total td:nth-child(7) {
+  border-top: 2px solid #eee;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .invoice-box table tr.top-table table td {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .invoice-box table tr.information table td {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+}
+.artd {
+  text-align: left;
+}
+
+/** RTL **/
+.invoice-box.rtl {
+  direction: rtl;
+  font-family: Tahoma, "Helvetica Neue", "Helvetica", Helvetica, Arial,
+    sans-serif;
+}
+
+.invoice-box.rtl table {
+  text-align: right;
+}
+
+.invoice-box.rtl table tr td:nth-child(2) {
+  text-align: right;
+}
+.ar table {
+  direction: rtl;
+}
+.ar .artd {
+  text-align: right;
+}
+/*--- Added style ----*/
+header {
+  border-bottom: 4px solid #000;
+  height: 150px;
+  position: relative;
+}
+.top_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+img {
+  width: 250px;
+  height: 250px;
+}
+
+.fatorah-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translate(-50%, -50%);
+}
+.top_header h2 {
+  text-align: center;
+  color: #747474;
+  font-size: 30px;
+}
+.top-table {
+  display: flex;
+  justify-content: space-between;
+  width: 100% !important;
+}
+.top-table div:first-child {
+  flex-basis: 100%;
+}
+.pdf-table, .pdf-table table {
+  border-collapse: collapse;
+  width: 100%;
+  border-spacing: unset !important;
+  /* margin: 0 auto; */
+  /* margin-top: 30px; */
+}
+.pdf-table td {
+  /* padding-bottom: 12px; */
+  text-align: center;
+  border: 1px solid rgb(209, 208, 208);
+  font-weight: bold;
+}
+.sec_table tr td {
+  padding: 0 5px;
+  text-align: center;
+}
+.sec_table tr td:first-child {
+  width: 20%;
+}
+.pdf-table th {
+  text-align: center;
+  background-color: #f1eded !important;
+  color: #828bb2 !important;
+  border: 1px solid rgb(209, 208, 208);
+  background-image: unset;
+  padding: 15px 0;
+}
+
+.noice-table {
+  padding: 0;
+  width: 100%;
+}
+
+.total_table tr td {
+  text-align: right;
+  /* width: 150px !important; */
+}
+.total_table tr:first-child td {
+  border-top: 2px solid black;
+}
+.total_eng {
+  text-align: center !important;
+}
+.total_written {
+  padding: 6px;
+  border-bottom: 2px solid black;
+  background-color: #f4f4f4 !important;
+}
+.normal {
+  font-weight: normal;
+}
+.image_header img {
+  max-height: 250px;
+  width: 250px;
+}
+
+.pdf-table td.notesss {
+  white-space: pre-wrap;
+}
+@media print {
+  .pdf-table td.notesss {
+    white-space: pre-wrap;
+  }
+  .pdf-table.report-container {
+    page-break-after: always;
+    padding: 0px;
+    margin: 0px;
+  }
+  .pdf-table thead.report-header {
+    display: table-header-group;
+  }
+  .pdf-table tfoot.report-footer {
+    display: table-footer-group;
+  }
+  .image_header img {
+    width: 70px;
+    height: 70px;
+    direction: ltr;
+    text-align: left;
+  }
+  .image_header {
+    direction: ltr;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  footer,
+  .footer {
+    padding: 0%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100px;
+  }
+  .third_table td {
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 13px;
+  }
+}
+
+/* Print progressive page numbers */
+.page-number:before {
+  /* counter-increment: page; */
+  content: "Page: " counter(page);
+}
+
+@media screen {
+  .footer {
+    display: none;
+  }
+}
+.h_l {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  margin: 12px 0;
+}
+.h_r {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.report-header .th {
+  line-height: 0.7px;
+  width: 50px;
+}

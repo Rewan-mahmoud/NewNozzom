@@ -1,0 +1,95 @@
+table {
+  width: 100%;
+}
+
+th {
+  /* background: var(--main-color); */
+      background-image: linear-gradient(201deg, #5a65c1, #50589ac9);
+  color: white;
+  padding: 10px;
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.thead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+td {
+  text-align: center;
+  background: white;
+  padding: 10px;
+}
+
+.settCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.viewBtn,
+.editBtn,
+.btn,
+.delBtn {
+  border: none;
+    padding: 6px 10px;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-family: var(--font-family);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    text-decoration: none;
+    font-size: 13px;
+    height: 45px;
+}
+
+.viewBtn path {
+  stroke: white;
+}
+
+.delBtn {
+  background-image: linear-gradient(201deg, #d95a5a, #d72a2a);
+}
+
+.btn {
+  /* background-color: var(--main-color); */
+  background-image: linear-gradient(201deg, #4a54a1, #17237c);
+  min-width: 150px;
+}
+
+.btn:hover {
+  background-image: linear-gradient(201deg, #17237c, #4a54a1);
+}
+.viewBtn {
+  /* background: var(--success-color); */
+  background-image: linear-gradient(201deg, #4aa183, #3cc998);
+}
+
+.viewBtn:hover {
+  background-image: linear-gradient(201deg, #3cc998, #4aa183);
+}
+
+.editBtn {
+  /* background: var(--warn-color); */
+      background-image: linear-gradient(201deg, #a68d64, #cab797);
+  text-decoration: none;
+}
+
+.editBtn:hover {
+  background-image: linear-gradient(201deg, #cab797, #a68d64);
+}
+
+@media screen and (max-width: 850px) {
+  th, td{
+    font-size: 10px;
+  }
+}

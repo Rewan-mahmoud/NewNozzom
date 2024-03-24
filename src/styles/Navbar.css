@@ -1,0 +1,141 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background: var(--main-color); */
+  background-image: linear-gradient(201deg, #4a54a1, #17237c);
+  color: white;
+  z-index: 9999;
+}
+
+.navbar::after {
+  content: "";
+  background-image: url("../public/3065.jpg");
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.04;
+  z-index: -5;
+}
+
+.nav-drop {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  color: black !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px 0px #ebebeb;
+}
+
+.nav-drop a,
+.nav-drop p {
+  width: 100%;
+  padding: 7px 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  color: #000 !important;
+  cursor: pointer;
+}
+
+.nav-drop a:first-of-type {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.nav-drop p:last-of-type {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.nav-drop a:hover,
+.nav-drop p:hover {
+  background-image: linear-gradient(201deg, #4a54a1, #17237c);
+  color: #ebebeb !important;
+}
+.nav-drop p:hover .arrow{
+    color: #ebebeb !important;
+}
+.navbar .navleft,
+.navbar .navright,
+.navbar .center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .navleft,
+.navbar .navright {
+  padding: 20px;
+}
+
+.navbar .navleft {
+  cursor: pointer;
+  gap: 10px;
+}
+
+/* .navbar .navleft:hover {
+    background: var(--main-hover);
+} */
+.arrow {
+  width: 15px;
+}
+.search input {
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  width: 300px;
+  padding: 8px 5px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.search {
+  background: white;
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  padding: 0 10px;
+}
+
+.search input {
+  font-family: "Cairo", sans-serif;
+}
+
+@media screen and (max-width: 590px) {
+  .navbar .navleft,
+  .navbar .navright {
+    padding: 10px;
+  }
+  .search input {
+    width: 170px;
+  }
+}

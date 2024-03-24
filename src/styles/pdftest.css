@@ -1,0 +1,264 @@
+@media print {
+  html,
+  body {
+    height: initial !important;
+    overflow: initial !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    /* padding: 0 20px 0 20px; */
+  }
+}
+
+@media print {
+  .page-break {
+    margin-top: 1rem;
+    display: block;
+    page-break-before: auto;
+  }
+
+  .qr button {
+    display: none;
+  }
+}
+
+.pdf-line {
+  height: 5px;
+  background-color: black;
+  /* margin-top: 15px; */
+  width: 100%;
+}
+@page {
+  size: A4;
+  /* margin: 10mm; */
+  margin: 0 !important;
+}
+
+.pdf-container {
+  width: 100%;
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.th {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pdf-container .header {
+  /* padding: 0 20px; */
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+.pdf-container .header img {
+  width: 100px;
+  height: 100px;
+}
+
+.pdf-container .header .reciept-title {
+  /* margin: 0 auto; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.pdf-container table {
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
+  border: 1px solid gray;
+}
+
+.pdf-container table th {
+  /* background-image: unset !important; */
+  border: 1px solid gray !important;
+  /* border-collapse: unset; */
+  /* background-color: black; */
+  /*  */
+  color: white;
+  padding: 0 5px;
+  text-align: center;
+}
+
+.first-tt th {
+  background-image: linear-gradient(201deg, #4a54a1, #17237c) !important;
+}
+
+.table-group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  /* gap: 20px; */
+  width: 100%;
+}
+
+.table-group th {
+  background: white !important;
+  background-image: unset !important;
+  color: black !important;
+  border: 1px solid gray !important;
+  /* font-size: 10px !important; */
+}
+
+.table-group th.backgr {
+  background-image: linear-gradient(201deg, #4a54a1, #17237c) !important;
+  color: white !important;
+}
+
+.body-table th {
+  /* background: white !important;
+    color: black !important;
+    border-collapse: collapse; */
+  background-image: linear-gradient(201deg, #4a54a1, #17237c) !important;
+  border: 1px solid gray !important;
+  /* font-size: 10px !important; */
+}
+
+.body-table td {
+  border: 1px solid gray !important;
+  padding: 0;
+  font-size: 12px;
+}
+
+.table-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  height: 150px;
+  align-items: center;
+}
+
+.table-footer table {
+  width: 50%;
+}
+
+.table-footer tbody tr {
+  height: 20px;
+}
+
+.table-footer tbody td {
+  height: 20px;
+  padding: 0;
+  width: 100px;
+  border: 1px solid gray;
+}
+
+.table-footer tfoot td {
+  background-image: linear-gradient(201deg, #4a54a1, #17237c) !important;
+  color: white;
+  padding: 0;
+}
+
+.backgr {
+  background-image: linear-gradient(201deg, #4a54a1, #17237c) !important;
+}
+
+.qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.qr img {
+  width: 120px !important;
+  height: 120px !important;
+}
+
+.table-tail {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.table-tail .img {
+  width: 50px;
+  height: 50px;
+}
+
+.table-tail .img img {
+  width: 100%;
+  height: 100%;
+}
+
+.tail-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 20px;
+    width: 50%;
+}
+
+.tail-center .img {
+    width: 50px;
+    height: 50px;
+}
+
+.tail-center .img img {
+    width: 100%;
+    height: 100%;
+}
+@media print {
+  .table-footer {
+    position: fixed;
+    bottom: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 20px;
+  }
+  .qr img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .table-tail {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 20px;
+    font-size: 30px !important;
+  }
+
+  .table-tail p {
+    font-size: 30px !important;
+  }
+
+  * {
+    font-size: 10px !important;
+  }
+
+  .reciept-title h2 {
+    font-size: 20px !important;
+  }
+
+  .w-250 {
+    width: 350px !important;
+  }
+
+  .w-150 {
+    width: 200px !important;
+  }
+
+  .w-60 {
+    width: 61px !important;
+  }
+}
