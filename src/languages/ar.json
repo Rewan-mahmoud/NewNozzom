@@ -25,6 +25,8 @@
   "qoutation": "عرض اسعار",
   "saleReturn": "اشعارات دائنة",
   "purReturn": "اشعار مدين",
+  "fromStore": "من المخزن",
+  "toStore": "الي المخزن",
   "purchase": "المشتريات",
   "purchaseOrder": "طلبية الشراء",
   "purchaseReturn": "مرتجع المشتريات",
@@ -63,6 +65,9 @@
   "Select an option": "اختر",
   "Reset": "الجميع",
   "store": "المخازن",
+  "products":"المنتجات",
+  "availableQuantity":"الكمية المتاحة",
+  "transfairProduct":"الكمية المراد نقلها",
   "Select All": "اختار الكل",
   "Clear All": "تصفية",
   "Invoice limit": "حالة الفاتورة",
@@ -104,8 +109,7 @@
   "totalA": "المجموع بعد الخصم",
   "paymentType": "طريقة الدفع",
   "logo": "شعار الشركة",
-  
-  
+  "MoveStores":"نقل من مخزن الي مخزن",
   "isForPurchase": "الخدمة او المنتج للشراء؟",
   "notForPurchase": "لا تشترى",
   "definePurchase": "تحديد سعر الشراء",

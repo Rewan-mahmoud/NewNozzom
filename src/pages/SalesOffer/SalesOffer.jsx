@@ -337,11 +337,11 @@ const SalesOffer = () => {
       dataIndex: "customers.name",
       key: "اسم العميل",
     },
-    {
-      title: t("branch"),
-      dataIndex:"branches.name_ar",
-      key: "branches",
-    },
+    // {
+    //   title: t("branch"),
+    //   dataIndex:"branches.name_ar",
+    //   key: "branches",
+    // },
     {
       title: t("invoiceDate"),
       dataIndex: "date",
@@ -352,11 +352,11 @@ const SalesOffer = () => {
       dataIndex: "paymentType",
       key: "نوع الفاتورة",
     },
-    {
-      title: t("subTotal"),
-      dataIndex: "sub_total",
-      key: "المجموع الفرعي",
-    },
+    // {
+    //   title: t("subTotal"),
+    //   dataIndex: "sub_total",
+    //   key: "المجموع الفرعي",
+    // },
     {
       title: t("vatAmount"),
       dataIndex: "tax",

@@ -29,7 +29,7 @@ const useAll = (stateName, method, id = null) => {
  useEffect(() => {
    setDataToFilter(dataSource);
  }, [data]);
-
+console.log("dataSourcee" ,dataSource )
  const filterData = (filteredData) => {
    setDataToFilter(filteredData);
  };

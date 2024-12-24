@@ -102,7 +102,19 @@ const AddPurchase = () => {
               printOptions("productandservices_purchers", "Products"),
             details: true,
           },
-
+          {
+            title: t("store"),
+            name: "store",
+            id: 6,
+            type: "select",                   
+            error: "",
+            unique: false,
+            required: true,
+            // style: { gridColumn: "1/2" },
+            class: "input-group input-class",
+            inputClass: "input-field",
+      
+          },
           {
             name: "description",
             title: "desc",
@@ -494,7 +506,7 @@ const AddPurchase = () => {
           setFormData={setData}
           totalNum={total}
           updateMethod={updatePurchase}
-          btn={ "اضافة عميل+" }
+          btn={ "+" }
           modalType={"page"}
           // modalValue={modalValue}
           modal={modal}

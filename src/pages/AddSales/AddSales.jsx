@@ -183,6 +183,19 @@ const AddSales = () => {
               printOptions("productandservices_sales", "Products"),
             details: true,
           },
+          // {
+          //   title: t("store"),
+          //   name: "store",
+          //   id: 6,
+          //   type: "select",                   
+          //   error: "",
+          //   unique: false,
+          //   required: true,
+          //   // style: { gridColumn: "1/2" },
+          //   class: "input-group input-class",
+          //   inputClass: "input-field",
+      
+          // },
 
           {
             name: "description",
@@ -268,38 +281,38 @@ const AddSales = () => {
       console.log(error);
     }
   }
-  if (role === "company") {
-    modalData.splice(1, 0, {
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_branches_all", "Branches"),
-      error: "",
-      style: { gridColumn: "1/2" },
-      class: "input-group input-class",
-      inputClass: "input-field",
-    // Add onChange event handler
-    });
-  }else{
-    modalData.splice(1, 0, {
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      disable :true ,
-      error: "",
-      placeholder:branche_name,
-      style: { gridColumn: "1/2" },
-      class: "input-group input-class",
-      inputClass: "input-field",
-  })}
+  // if (role === "company") {
+  //   modalData.splice(1, 0, {
+  //     title: t("branch"),
+  //     name: "branche_id",
+  //     id: 19,
+  //     unique: false,
+  //     required: false,
+  //     validation: () => {},
+  //     type: "select",
+  //     getOptions: () => printOptions("show_branches_all", "Branches"),
+  //     error: "",
+  //     style: { gridColumn: "1/2" },
+  //     class: "input-group input-class",
+  //     inputClass: "input-field",
+  //   // Add onChange event handler
+  //   });
+  // }else{
+  //   modalData.splice(1, 0, {
+  //     title: t("branch"),
+  //     name: "branche_id",
+  //     id: 19,
+  //     unique: false,
+  //     required: false,
+  //     validation: () => {},
+  //     type: "select",
+  //     disable :true ,
+  //     error: "",
+  //     placeholder:branche_name,
+  //     style: { gridColumn: "1/2" },
+  //     class: "input-group input-class",
+  //     inputClass: "input-field",
+  // })}
   
   const ClientModalData = [
     {
@@ -611,7 +624,7 @@ const AddSales = () => {
         <Form
           data={data}
           setFormData={setData}
-          btn={ "اضافة عميل+" }
+          btn={ "+" }
           modal={modal}
           setModal={setModal}
           totalNum={total}

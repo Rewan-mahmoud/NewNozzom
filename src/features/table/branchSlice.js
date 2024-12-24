@@ -87,11 +87,24 @@ const branchSlice = createSlice({
     builder.addCase(fetchBranches.rejected, fetchRejected);
     //post
     builder.addCase(postBranch.pending, postPend);
-    builder.addCase(postBranch.fulfilled, postFulfilled);
+    // builder.addCase(postBranch.fulfilled, postFulfilled);
+    builder.addCase(postBranch.fulfilled, (state, action) => {
+      // console.log(action.payload);
+      state.postLoad = false;
+      state.data.unshift(action.payload.data);
+      state.error = "";
+    });
     builder.addCase(postBranch.rejected, postRejected);
     //update
     builder.addCase(updateBranch.pending, updatePend);
-    builder.addCase(updateBranch.fulfilled, updateFulfilled);
+    // builder.addCase(updateBranch.fulfilled, updateFulfilled);
+    builder.addCase(updateBranch.fulfilled, (state, action) => {
+      // console.log(action.payload);
+      state.postLoad = false;
+      state.data.unshift(action.payload.data);
+      state.error = "";
+    });
+
     builder.addCase(updateBranch.rejected, updateRejected);
   },
 });

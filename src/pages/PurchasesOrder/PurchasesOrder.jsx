@@ -146,9 +146,8 @@ const PurchasesOrder = () => {
       key: "branches",
   },
     {
-      title: t("customerName"),
-      dataIndex: "customers.name",
-      key: "اسم العميل",
+      title: "customer",
+      name: "customer_id",
     },
 
     {

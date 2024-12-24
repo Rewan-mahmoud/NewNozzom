@@ -170,7 +170,8 @@ const Table = ({
                 {columns.map((column, i) => {
                   if (column.key === "index") {
                     return <td key="index">{column.render(index)}</td>;
-                  } else if (column.key === "actions") {
+                  } 
+                  else if (column.key === "actions") {
                     return <td key="actions">{column.render(item)}</td>;
                   } else if (
                     column.dataIndex === "date" ||

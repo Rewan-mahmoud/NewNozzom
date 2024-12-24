@@ -123,7 +123,7 @@ const AddRefundSale = () => {
       type: "select",
       error: "",
       class: "input-group input-class",
-      getOptions: () => printOptions("show_customer_all_purchers", "vendors"),
+   getOptions: () => printOptions("show_customer_all_sales", "customer"),
       // style: { gridColumn: "2/2" },
       style: { gridColumn: "1/2" },
 
@@ -148,7 +148,7 @@ const AddRefundSale = () => {
               printOptions("productandservices_purchers", "Products"),
             details: true,
           },
-
+        
           {
             name: "description",
             title: "desc",
@@ -217,22 +217,6 @@ const AddRefundSale = () => {
 
   // console.log(modalData);
 
-  if (role === "company") {
-    modalData.splice(1, 0, {
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_branches_all", "Branches"),
-      error: "",
-      style: { gridColumn: "1/2" },
-      class: "input-group input-class",
-      inputClass: "input-field",
-    });
-  }
   const ClientModalData = [
     {
       title: t("vatStatus"),
@@ -545,7 +529,7 @@ const AddRefundSale = () => {
           modalType={"page"}
           modal={modal}
           setModal={setModal}
-               btn={ "اضافة عميل+" }
+          btn={ "+" }
           // modalValue={modalValue}
           errors={errors}
           setErrors={setErrors}

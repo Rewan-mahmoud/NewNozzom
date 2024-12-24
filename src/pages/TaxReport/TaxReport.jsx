@@ -253,37 +253,6 @@ const TaxReport = () => {
       }
     }
 
-    if (role === "company") {
-      modalData.splice(0, 0, {
-        title: t("branch"),
-        name: "branche_id",
-        id: 19,
-        unique: false,
-        required: false,
-        validation: () => {},
-        type: "select",
-        getOptions: () => printOptions("show_branches_all", "Branches"),
-        error: "",
-        class: "report-input input-group",
-        inputClass: "input-field",
-      });
-    } else {
-      modalData.splice(0, 0, {
-        title: t("branch"),
-        name: "branche_id",
-        id: 19,
-        unique: false,
-        required: false,
-        validation: () => {},
-        type: "select",
-        disable: true,
-        error: "",
-        placeholder: branche_name,
-        class: "report-input input-group",
-        inputClass: "input-field",
-      });
-    }
-
     const handleErrors = (data, dataSource, modalData, hidden) => {
       let err = {};
       modalData.map((item) => {

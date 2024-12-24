@@ -1215,21 +1215,21 @@ const AddEmployee = () => {
 
   
 
-  if (role === "company") {
-    modalData0.push({
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "multi-select",
-      // getOptions: () => printOptions("show_branches_all", "Branches"),
-      options,
-      error: "",
-      class: " w-100 input-group",
-    });
-  }
+  // if (role === "company") {
+  //   modalData0.push({
+  //     title: t("branch"),
+  //     name: "branche_id",
+  //     id: 19,
+  //     unique: false,
+  //     required: false,
+  //     validation: () => {},
+  //     type: "multi-select",
+  //     // getOptions: () => printOptions("show_branches_all", "Branches"),
+  //     options,
+  //     error: "",
+  //     class: " w-100 input-group",
+  //   });
+  // }
 
   useEffect(() => {
     printOptions("show_branches_all", "Branches").then((res) => {

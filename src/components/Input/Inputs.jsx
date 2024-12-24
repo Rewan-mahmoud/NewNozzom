@@ -313,6 +313,7 @@ export const SelectInput = ({
       setLoading(true)
       if (custom && custom.length) {
         // setLoader(true);
+        
         getOptions2(e, custom[0], custom[1], token).then((res) => {
           setLoading(false);
           console.log(res[0])

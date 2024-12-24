@@ -95,11 +95,7 @@ const ReceiptVouchersCashing = () => {
       dataIndex: "customers.name",
       key: "الاسم",
     },
-    {
-      title: t("branch"),
-      dataIndex: "branche_name",
-      key: "branches",
-    },
+  
     {
       title: t("cost"),
       dataIndex: "money",
@@ -253,39 +249,7 @@ const ReceiptVouchersCashing = () => {
       style: { gridColumn: "1/-1" },
     },
   ];
-  if (role === "company") {
-    modalData.splice(1, 0, {
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_branches_all", "Branches"),
-      error: "",
-      style: { gridColumn: "1/2" },
-      class: "input-group input-class",
-      inputClass: "input-field",
-      // Add onChange event handler
-    });
-  } else {
-    modalData.splice(1, 0, {
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      disable: true,
-      error: "",
-      // style: { gridColumn: "1/2" },
-      // class: "input-group input-class",
-      inputClass: "input-field",
-      placeholder: branche_name,
-    });
-  }
+
 
   if (role === "employee" && !permissions.includes("receipt_cashing")) {
     return <Navigate to="/categorys" />;

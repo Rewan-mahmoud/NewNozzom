@@ -90,11 +90,7 @@ const StockSummery = () => {
       dataIndex: "product_name",
       key: "اسم المنتج",
     },
-    {
-      title: t("branch"),
-      dataIndex: "branche_name",
-      key: "branches",
-    },
+ 
     {
       title: t("totalQua"),
       dataIndex: "quantity",
@@ -206,50 +202,50 @@ const StockSummery = () => {
     }
   }
 
-  if (role === "company") {
-    modalData.splice(0, 0, {
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_branches_all", "Branches"),
-      error: "",
-      class: "report-input input-group",
-      inputClass: "input-field",
-    });
-  } else {
-    modalData.splice(0, 0, {
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      disable: true,
-      error: "",
-      placeholder: branche_name,
-      class: "report-input input-group",
-      inputClass: "input-field",
-    });
-  }
+  // if (role === "company") {
+  //   modalData.splice(0, 0, {
+  //     title: t("branch"),
+  //     name: "branche_id",
+  //     id: 19,
+  //     unique: false,
+  //     required: false,
+  //     validation: () => {},
+  //     type: "select",
+  //     getOptions: () => printOptions("show_branches_all", "Branches"),
+  //     error: "",
+  //     class: "report-input input-group",
+  //     inputClass: "input-field",
+  //   });
+  // } else {
+  //   modalData.splice(0, 0, {
+  //     title: t("branch"),
+  //     name: "branche_id",
+  //     id: 19,
+  //     unique: false,
+  //     required: false,
+  //     validation: () => {},
+  //     type: "select",
+  //     disable: true,
+  //     error: "",
+  //     placeholder: branche_name,
+  //     class: "report-input input-group",
+  //     inputClass: "input-field",
+  //   });
+  // }
 
-  modalData.splice(2, 0, {
-    name: "store",
-    title: "store",
-    id: 2,
-    unique: true,
-    required: true,
-    type: "select",
-    validation: () => {},
-    getOptions: () => printOptions("show_Store_all", "Store"),
-    error: "",
-    class: "report-input input-group",
-    inputClass: "input-field",
-  });
+  // modalData.splice(2, 0, {
+  //   name: "store",
+  //   title: "store",
+  //   id: 2,
+  //   unique: true,
+  //   required: true,
+  //   type: "select",
+  //   validation: () => {},
+  //   getOptions: () => printOptions("show_Store_all", "Store"),
+  //   error: "",
+  //   class: "report-input input-group",
+  //   inputClass: "input-field",
+  // });
   const handleNavigate = () => {
     if (dataSource.length > 0) navigate(`/report/`);
   };

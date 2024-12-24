@@ -15,10 +15,10 @@ export const getOptions = (path, output, token) => {
     })
       .then((data) => data.json())
       .then((res) => {
-        console.log(res.data);
+        console.log( "outpuutt " , res.data);
         resolve(
           res.data[`${output}`].map((item) => {
-            // console.log(item)
+            console.log(item)
             if (item.ar_name)
               return {
                 name: item.ar_name,

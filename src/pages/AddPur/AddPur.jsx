@@ -187,7 +187,7 @@ const AddPur = () => {
               printOptions("productandservices_purchers", "Products"),
             details: true,
           },
-
+        
           {
             name: "description",
             title: "desc",
@@ -254,23 +254,7 @@ const AddPur = () => {
     },
   ];
 
-  if (role === "company") {
-    modalData.splice(1, 0, 
-      {
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_branches_all", "Branches"),
-      error: "",
-      style: { gridColumn: "1/2" },
-      class: "input-group input-class",
-      inputClass: "input-field",
-    });
-  }
+
   const ClientModalData = [
     {
       title: t("vatStatus"),
@@ -591,7 +575,7 @@ const AddPur = () => {
           error={error} 
           modal={modal}
           setModal={setModal}
-          btn={ "اضافة عميل+" }
+          btn={ "+" }
           modalData={modalData}
           className={"table"}
           mainClass={"mainClass formWrapper"}

@@ -38,6 +38,7 @@ const AddReceipt = () => {
   async function printOptions(path, output) {
     try {
       const result = await getOptions(path, output, token);
+      console.log("resultt" , result)
       return result;
     } catch (error) {
       console.error(error);
@@ -55,14 +56,8 @@ const AddReceipt = () => {
     branche_id:[],
   });
 
-// useEffect(()=>{
-  
-// },[])
-
-  // console.log(t('date'))
   const [errors, setErrors] = useState({});
   const handleClick = (e, text) => {
-    // console.log('sec')
     e.stopPropagation();
     if (text.id === list) {
       setlist(false);
@@ -136,20 +131,24 @@ const AddReceipt = () => {
       // inputClass: "input-class",
      
     },
-    {
-      title: t("branch"),
-          name: "branche_id",
-          id: 19,
-          unique: false,
-          required: false,
-          validation: () => {},
-          type: "select",
-          getOptions: () => printOptions("show_branches_all", "Branches"),
-          error: "",
-          style: { gridColumn: "1/2" },
-          class: "input-group input-class",
-          inputClass: "input-field",
-    },
+
+
+    // {
+    //   title: t("branch"),
+    //       name: "branche_id",
+    //       id: 19,
+    //       unique: false,
+    //       required: false,
+    //       validation: () => {},
+    //       type: "select",
+    //       getOptions: () => printOptions("show_branches_all", "Branches"),
+    //       error: "",
+    //       style: { gridColumn: "1/2" },
+    //       class: "input-group input-class",
+    //       inputClass: "input-field",
+    // },
+ 
+
     {
       title: "اضافة عرض سعر",
       name: "items",
@@ -167,7 +166,19 @@ const AddReceipt = () => {
             getOptions: () => printOptions("productandservices_sales", "Products"),
             details: true,
           }, 
-        
+          // {
+          //   title: t("store"),
+          //   name: "store",
+          //   id: 6,
+          //   type: "select",                   
+          //   error: "",
+          //   unique: false,
+          //   required: true,
+          //   // style: { gridColumn: "1/2" },
+          //   class: "input-group input-class",
+          //   inputClass: "input-field",
+      
+          // },
           {
             name: "description",
             title: "desc",
@@ -177,16 +188,7 @@ const AddReceipt = () => {
             type: "text",
             details: true,
           },
-          {
-            name: "store",
-            title: "store",
-            id: 2,
-            unique: true,
-            required: false,
-            type: "select",
-            // getOptions: () => printOptions("show_Store_all", "Store"),
-            details: true,
-          },
+     
       
           {
             name: "quantity",
@@ -219,6 +221,8 @@ const AddReceipt = () => {
         ],
       },
     },
+
+    
     {
       title: t('desc'),
       name: "invoice_description",
@@ -599,7 +603,7 @@ const AddReceipt = () => {
           modalType={"page"}
           // modalValue={modalValue}
           errors={errors}
-          btn={ "اضافة عميل+" }
+          btn={ "+" }
           modal={modal}
           setModal={setModal}
           dataSource={dataSource}

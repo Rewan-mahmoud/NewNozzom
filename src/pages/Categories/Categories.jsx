@@ -86,11 +86,12 @@ const Categories = () => {
       dataIndex: "name_en",
       key: "الاسم باللغة الانجليزية",
     },
-    {
-      title: t("groups"),
-      dataIndex: "group_name",
-      key: "group",
-    },
+    // {
+    //   title: t("groups"),
+    //   dataIndex: "group_name",
+    //   key: "group",
+    // },
+ 
     {
       title: t("action"),
       dataIndex: "actions",
@@ -144,20 +145,20 @@ const Categories = () => {
   //   modalData.unshift();
   // }
   const [modalData, setModalData] = useState([
-    {
-      title: t("groups"),
-      name: "group_id",
-      id: 2,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_groupbranches_all", "Groupbrances"),
-      error: "",
-      // style: { gridColumn: "1/2" },
-      // class: "input-group input-class",
-      // inputClass: "input-field",
-    },
+    // {
+    //   title: t("groups"),
+    //   name: "group_id",
+    //   id: 2,
+    //   unique: false,
+    //   required: false,
+    //   validation: () => {},
+    //   type: "select",
+    //   getOptions: () => printOptions("show_groupbranches_all", "Groupbrances"),
+    //   error: "",
+    //   // style: { gridColumn: "1/2" },
+    //   // class: "input-group input-class",
+    //   // inputClass: "input-field",
+    // },
     {
       title: t("arabicName"),
       name: "name_ar",
@@ -195,7 +196,7 @@ const Categories = () => {
 
 
   useEffect(() => {
-    printOptions("show_branches_all", "Branches").then((res) => {
+    printOptions("show_groupbranches_all", "Groupbrances").then((res) => {
       // options.push()
       let newOptions = [...options];
       newOptions.push(...res);
@@ -259,8 +260,8 @@ const Categories = () => {
         modal={modal}
         setModal={setModal}
         searchData={dataSource}
-        setDataToFilter={filterData}
-        filter={options}
+        // setDataToFilter={filterData}
+        // filter={options}
       />
       <Table
         loading={loading}

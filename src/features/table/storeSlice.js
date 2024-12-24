@@ -87,7 +87,13 @@ const storeSlice = createSlice({
     builder.addCase(postStore.rejected, postRejected);
     //update
     builder.addCase(updateStore.pending, updatePend);
-    builder.addCase(updateStore.fulfilled, updateFulfilled);
+    builder.addCase(updateStore.fulfilled, (state, action) => {
+      // console.log(action.payload);
+      state.postLoad = false;
+      state.data.unshift(action.payload.data);
+      state.error = "";
+    });
+    // builder.addCase(updateStore.fulfilled, updateFulfilled);
     builder.addCase(updateStore.rejected, updateRejected);
   },
 });

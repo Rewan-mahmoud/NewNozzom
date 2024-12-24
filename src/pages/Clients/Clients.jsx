@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import useAll from "../../hooks/useAll";
 import PageHead from "../../components/PageHead/PageHead";
 import Table from "../../components/Table/Table";
-import Form from "../../components/Form2/Form";
+import Form from "../../components/Form/Form";
 import Modal from "../../components/Modal/Modal";
 import {
   fetchClients,
@@ -25,10 +25,7 @@ const Clients = () => {
   const { t, i18n } = useTranslation();
   const [modal, setModal] = useState({ open: false, type: "", data: null });
   const userData = useSelector((state) => state.auth.data);
-  const group_id = userData?.Branches?.[0]?.group_id;
-  const branche_id = userData?.Branches?.[0]?.id; 
-  const branche_name = userData?.Branches?.[0]?.name_ar; 
-  const group_name = userData?.Branches?.[0]?.group_name; 
+
   
   const {
     dataSource,
@@ -67,6 +64,9 @@ const Clients = () => {
     branche_id:[],
     group_id: "",
   });
+
+
+
 
   console.log("dataaa" , data)
   async function printOptions(path, output) {
@@ -137,6 +137,7 @@ const Clients = () => {
       dataIndex: "phone",
       key: "رقم الهاتف",
     },
+  
     {
       title: t("vatNumber"),
       dataIndex: "tax_card",
@@ -152,16 +153,8 @@ const Clients = () => {
       dataIndex: "type",
       key: "نوع المستخدم",
     },
-    {
-      title: t("clientType"),
-      dataIndex: "customer_type",
-      key: "نوع العميل",
-    },
-    {
-      title: t("groups"),
-      dataIndex: "group_name",
-      key: "group",
-    },
+
+   
     {
       title: t("action"),
       dataIndex: "actions",
@@ -199,20 +192,7 @@ const Clients = () => {
     },
   ];
   const [modalData, setModalData] = useState([
-    {
-      title: t("groups"),
-      name: "group_id",
-      id: 40,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_groupbranches_all", "Groupbrances"),
-      error: "",
-      // style: { gridColumn: "1/2" },
-      // class: "input-group input-class",
-      // inputClass: "input-field",
-    },
+
     {
       title: t("vatStatus"),
       name: "taxes_unable",
@@ -531,7 +511,7 @@ const Clients = () => {
  
  
   useEffect(() => {
-    printOptions("show_groupbranches_all", "Groupbrances").then((res) => {
+    printOptions("show_branches_all", "Branches").then((res) => {
       // options.push()
       let newOptions = [...filterOptions];
       newOptions.push(...res);
@@ -573,9 +553,9 @@ const Clients = () => {
         modal={modal}
         setModal={setModal}
         searchData={dataSource}
-        setDataToFilter={filterData}
-        resetFilter={handleFilterReset}
-        filter={filterOptions}
+        // setDataToFilter={filterData}
+        // resetFilter={handleFilterReset}
+        // filter={filterOptions}
       />
       <Table
         loading={loading}

@@ -85,11 +85,7 @@ const PurchasesReturns = () => {
       dataIndex: "customers.name",
       key: "اسم العميل",
     },
-    {
-      title: t("branch"),
-      dataIndex: "branche_name",
-      key: "branches",
-    },
+
     {
       title: t("invoiceDate"),
       dataIndex: "created_at",

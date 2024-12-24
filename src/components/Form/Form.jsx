@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 import { AiOutlineDown, AiOutlineIdcard } from "react-icons/ai";
 import { BiSolidDownArrow } from "react-icons/bi";
-// import { BsFillTrashFill } from "react-icons/bs";
+import { BsFillTrashFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import SelectSearch from "react-select-search";
 import MultipleSelect, {
@@ -92,121 +92,6 @@ console.log("data" , data)
   }
   const role = useSelector((state) => state.auth.data.role);
 
-
-
-  useEffect(() => {
-
-    if (!name) {
-      let stores = [];
-    
-
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-
-      axios
-        .post(
-          `https://cashiry.nozzm.com/api/show_branches_all`,
-          {},
-          { headers }
-        )
-        .then((res) => {
-          console.log(res, data);
-          // if(data.branche_id) {
-          //   // setFormData((prev) => ({ ...prev, branche_id: data.branche_id }));
-          // }else {
-          //   // console.log('first')
-          //   // setFormData((prev) => ({ ...prev, branche_id: [] }));
-          // }
-          const da = res.data.data.Branches.filter(
-            (ele) => ele.id === data.branche_id
-            
-          );
-          console.log("daaaa222" , da)
-          
-          stores = da[0].Stories.map((item) => ({
-            name_en: item.name_en,
-            name: item.name_ar,
-            value: item.id,
-          }));
-console.log("storessss" , stores)
-          console.log("BranchesOpts" ,BranchesOpts)
-          if (da[0]?.same === 0) {
-            let temp = info.map((el) => {
-              if(el.type === "group"){
-                el.child.item.map((item)=>{
-                  if (item.name === "store") {
-                    // console.log("name_ar");
-                    return {
-                      title: t("store"),
-                      name: "store",
-                      id: 2,
-                      unique: false,
-                      required: false,
-                      disable: false,
-                      validation: () => {},
-                      type: "select",
-                      options: stores,
-                      error: "",
-                      class: "w-100 input-group",
-                    };
-
-
-                  }
-
-                })
-            // Keep the original item for other properties
-
-              }
-              return item; 
-            });
-            // console.log(info)
-            setInfo(temp);
-   
-           
-            // If it exists, no need to do anything as it should be present
-          } 
-          else {
-            let temp = info.map((el) => {
-              if(el.type === "group"){
-                el.child.item.map((item)=>{
-                  if (item.name === "store") {
-                    // console.log("name_ar");
-                    return {
-                      title: t("store"),
-                      name: "store",
-                      id: 2,
-                      unique: false,
-                      required: false,
-                      disable: false,
-                      validation: () => {},
-                      type: "select",
-                      options: stores,
-                      error: "",
-                      class: "w-100 input-group",
-                    };
-                  }
-                })
-            // Keep the original item for other properties
-
-              }
-              return item; 
-            });
-            // console.log(info)
-            setInfo(temp);
-          }
-    console.log("aaadsdfsdfaaaa")
-      
-        })
-        .catch((err) => {});
-    }
-  
-    console.log("aaadsdfsdfaaaa")
-}, [data.branche_id]);
-
-
-
-
   useEffect(() => {
     // useEffect(() => {
       // if(data.group_id){
@@ -215,14 +100,7 @@ console.log("storessss" , stores)
       if(!name) {
         let BranchesOpts = [];
         let cat = []
-        // printOptions("show_branches_all", "Branches").then((res) => {
-        //   // options.push()
-        //   // let newOptions = [...options];
-        //   BranchesOpts.push(...res);
-        //   // setOptions(res);
-
-        // });
-
+  
         const headers = {
           Authorization: `Bearer ${token}`,
         };
@@ -290,7 +168,8 @@ console.log("daaaaaaa1111" , da)
                 setInfo(newTemp);
                 
                 console.log(temp, data);
-              } else {
+              }
+               else {
                 let newTemp = temp.map((item) => {
                   if (item.name === "branche_id") {
                     return {
@@ -316,7 +195,10 @@ console.log("daaaaaaa1111" , da)
                 // console.log(info, data);
               }
               // If it exists, no need to do anything as it should be present
-            } else {
+            } 
+            
+            
+            else {
               // console.log("first");
               let catValues = cat.map((item) => item.value);
               let temp = info.map((item) => {
@@ -392,9 +274,9 @@ console.log("daaaaaaa1111" , da)
                 // );
                 // console.log('BranchesOpts')
                 // BranchesOpts?.forEach((item) => console.log(item));
-                setFormData((prev) => ({ ...prev, branche_id: values }));
+                setFormData((prev) => ({ ...prev, branche_id: [values] }));
               }
-              console.log(catValues)
+       
             }
 
 
@@ -406,7 +288,10 @@ console.log("daaaaaaa1111" , da)
     
       }
   }, [data.group_id]);
+;
 
+
+   
 
 
   useEffect(() => {
@@ -480,11 +365,7 @@ console.log("daaaaaaa1111" , da)
     setDisabled(disable);
 
     setRequried(requried);
-    // disable.map((item) => {
-    //   // console.log(item)
-    //   data[item] = "";
-    // });
-    // console.log(data)
+  
   }, [modalValue, data]);
 
   useEffect(() => {
@@ -518,107 +399,9 @@ console.log("daaaaaaa1111" , da)
   // )
 
   // },[])
-  useEffect(() => {
-    // console.log(modalValue)
-    if (val) {
-      // console.log(val, 'llllooooooo') 
-      setFormData({});
-      
-        // if (data.group_id) {
-          // setFormData((prev) => ({ ...prev, branche_id: val.branche_id }));
-        // }
-      // } 
-      let data = {};
 
-      let initNested;
-      let x
-      if (val.group_id) {
-        if(val.branche_id){
 
-          data = {...data, branche_id: val.branche_id }
-        } else {
-          data = {...data, branche_id: [] }
 
-        }
-      } 
-      info.map((item) => {
-        if (item.type === "group") {
-          if (nestedData && nestedData.length > 0) {
-            x = item
-          }
-        } else if (item.type === "date") {
-          data = { ...data, [item.name]: val[item.name] ? formatDate(val[item.name]) : '' };
-        } else if (item.name === "customer_id") {
-          // setLoading(true);
-          data[item.name] = val[item.name];
-          getOptions2(
-            Number(val[item.name]),
-            "show_customer_all_sales",
-            "customer"
-          )
-            .then((res) => {
-              // setLoading(false);
-              setDetail(res[0]);
-            })
-            .catch((err) => console.log(err));
-        } 
-        // else if (item.name === 'cheque_number') {
-        //   data = { ...data, [item.name]: val[item.name] };
-        // }
-        //
-        else {
-          // data = isNaN(Number(val[item.name]))
-          //   ? { ...data, [item.name]: val[item.name] }
-          //   : { ...data, [item.name]: Number(val[item.name]) };
-          data = {...data, [item.name]: val[item.name]}
-        }
-      });
-      if (x) {
-      if (nestedData) initNested = [nestedData[0]];
-      // console.log(val[item.name])
-      const newInfo = info.map((it) => ({
-        ...it,
-        child: { ...it.child },
-      }));
-      const obj = newInfo.find((it) => it.id === x.id);
-      const copy = modalData.find((it) => it.id === x.id);
-      for (let i = 0; i < val[x.name].length - 1; i++) {
-        initNested.push(initNested[0]);
-        // console.log(obj['child'])
-        obj["child"] = {
-          ...obj["child"],
-          [`item${i}`]: copy["child"]["item"],
-        };
-      }
-      // console.log(initNested)
-      newInfo.map((item) => item.id === obj.id && (item = obj));
-      // console.log(newInfo)
-      setInfo(newInfo);
-      val[x.name].map((it, i) => {
-        Object.keys(it).map((e) => {
-          // console.log(val[x.name][i][e], e)
-          if (initNested[i].hasOwnProperty(e)) {
-            initNested[i] = {
-              ...initNested[i],
-              [e]: val[x.name][i][e],
-              id: val[x.name][i]['id']
-            };
-          }
-
-          // console.log(initNested[i])
-        });
-      });
-      // console.log(initNested)
-      setNestedData(initNested);
-      }
-      setFormData(data);
-      if (data.hasOwnProperty("additional_data"))
-        delete data["additional_data"];
-      setFormData(data);
-    }
-    if(subs) setFormData(prev => ({...prev, company_id: id}))
-    console.log(val)
-  }, [val]);
 
 
   const handleCreate = async (form, body) => {
@@ -873,45 +656,45 @@ console.log("daaaaaaa1111" , da)
     newData[i][name] = e;
     // console.log(tax)
     setNestedData(newData);
-    if (ele.details) {
-      let vat = { ...tax };
-      getOptions2(e, "productandservices_all", "Products")
-        .then((res) => {
-          vat = { ...vat, [i]: { result: res[0].vat } };
-          if (nestedData[i].hasOwnProperty("piece_price")) {
-            res[0].price
-              ? (nestedData[i]["piece_price"] = res[0].price)
-              : (nestedData[i]["piece_price"] = "");
-          }
-          setTax({ ...vat });
-        })
-        .catch((err) => console.log(err));
-      let b = { ...bVat };
-      b = {
-        ...b,
-        [i]: {
-          bTax:
-            (Number(nestedData[i].piece_price) -
-              Number(nestedData[i].discount)) *
-            Number(nestedData[i].quantity),
-          bbTax:
-            (Number(nestedData[i].piece_price) -
-              Number(nestedData[i].discount)) *
-            Number(nestedData[i].quantity) *
-            (Number(tax[i].result) / 100),
+    // if (ele.details) {
+    //   let vat = { ...tax };
+    //   getOptions2(e, "productandservices_all", "Products")
+    //     .then((res) => {
+    //       vat = { ...vat, [i]: { result: res[0].vat } };
+    //       if (nestedData[i].hasOwnProperty("piece_price")) {
+    //         res[0].price
+    //           ? (nestedData[i]["piece_price"] = res[0].price)
+    //           : (nestedData[i]["piece_price"] = "");
+    //       }
+    //       setTax({ ...vat });
+    //     })
+    //     .catch((err) => console.log(err));
+    //   let b = { ...bVat };
+    //   b = {
+    //     ...b,
+    //     [i]: {
+    //       bTax:
+    //         (Number(nestedData[i].piece_price) -
+    //           Number(nestedData[i].discount)) *
+    //         Number(nestedData[i].quantity),
+    //       bbTax:
+    //         (Number(nestedData[i].piece_price) -
+    //           Number(nestedData[i].discount)) *
+    //         Number(nestedData[i].quantity) *
+    //         (Number(tax[i].result) / 100),
 
-          bbbTax:
-            (Number(nestedData[i].piece_price) -
-              Number(nestedData[i].discount)) *
-              Number(nestedData[i].quantity) +
-            (Number(nestedData[i].piece_price) -
-              Number(nestedData[i].discount)) *
-              Number(nestedData[i].quantity) *
-              (Number(tax[i].result) / 100),
-        },
-      };
-      setBVat({ ...b });
-    }
+    //       bbbTax:
+    //         (Number(nestedData[i].piece_price) -
+    //           Number(nestedData[i].discount)) *
+    //           Number(nestedData[i].quantity) +
+    //         (Number(nestedData[i].piece_price) -
+    //           Number(nestedData[i].discount)) *
+    //           Number(nestedData[i].quantity) *
+    //           (Number(tax[i].result) / 100),
+    //     },
+    //   };
+    //   setBVat({ ...b });
+    // }
 
     // console.log(first)
 
@@ -996,40 +779,115 @@ console.log("daaaaaaa1111" , da)
     setInfo(newInfo);
     console.log("new222", newInfo);
   };
+  useEffect(() => {
+    // console.log(modalValue)
+    if (val) {
+      // console.log(val, 'llllooooooo') 
+      setFormData({});
+      
+        // if (data.group_id) {
+          // setFormData((prev) => ({ ...prev, branche_id: val.branche_id }));
+        // }
+      // } 
+      let data = {};
 
-  const handleAddStoreAndQuantity = (e, item) => {
-    // const [inputs, setInputs] = useState(['Input 1', 'Input 2']);
-    e.preventDefault();
+      let initNested;
+      let x
+      if (val.group_id) {
+        if(val.branche_id){
 
-    let initNested = {};
-    modalData.forEach((ele) => {
-      if (ele.id === item.id && ele.type === "group") {
-        ele.child.item.forEach((it) => {
-          if (it.name === "store" || it.name === "quantity") {
-            initNested[it.name] = it.value || "";
+          data = {...data, branche_id: val.branche_id }
+        } else  {
+          data = {...data, branche_id:[] }
+
+        }
+      } 
+ 
+      info.map((item) => {
+        if (item.type === "group") {
+          if (nestedData && nestedData.length > 0) {
+            x = item
           }
-        });
+        } 
+        else if (item.type === "date") {
+          data = { ...data, [item.name]: val[item.name] ? formatDate(val[item.name]) : '' };
+        } 
+     
+       
+       
+        else if (item.name === "customer_id") {
+          // setLoading(true);
+          data[item.name] = val[item.name ];
+          getOptions2(
+            Number(val[item.name]),
+            "show_customer_all_sales",
+            "customer"
+          )
+            .then((res) => {
+              // setLoading(false);
+              setDetail(res[0]);
+            })
+            .catch((err) => console.log(err));
+        } 
+        // else if (item.name === 'cheque_number') {
+        //   data = { ...data, [item.name]: val[item.name] };
+        // }
+        //
+        else {
+          // data = isNaN(Number(val[item.name]))
+          //   ? { ...data, [item.name]: val[item.name] }
+          //   : { ...data, [item.name]: Number(val[item.name]) };
+          data = {...data, [item.name]: val[item.name]}
+        }
+      });
+      if (x) {
+      if (nestedData) initNested = [nestedData[0]];
+      // console.log(val[item.name])
+      const newInfo = info.map((it) => ({
+        ...it,
+        child: { ...it.child },
+      }));
+      const obj = newInfo.find((it) => it.id === x.id);
+      const copy = modalData.find((it) => it.id === x.id);
+      for (let i = 0; i < val[x.name].length - 1; i++) {
+        initNested.push(initNested[0]);
+        // console.log(obj['child'])
+        obj["child"] = {
+          ...obj["child"],
+          [`item${i}`]: copy["child"]["item"],
+        };
       }
-    });
+      // console.log(initNested)
+      newInfo.map((item) => item.id === obj.id && (item = obj));
+      // console.log(newInfo)
+      setInfo(newInfo);
+      val[x.name].map((it, i) => {
+        Object.keys(it).map((e) => {
+          // console.log(val[x.name][i][e], e)
+          if (initNested[i].hasOwnProperty(e)) {
+            initNested[i] = {
+              ...initNested[i],
+              [e]: val[x.name][i][e],
+              id: val[x.name][i]['id']
+            };
+          }
 
-    const newInfo = info.map((it) => ({
-      ...it,
-      child: { ...it.child },
-    }));
+          // console.log(initNested[i])
+        });
+      });
+      // console.log(initNested)
+      setNestedData(initNested);
+      }
+      setFormData(data);
+      if (data.hasOwnProperty("additional_data"))
+        delete data["additional_data"];
+      setFormData(data);
+    }
+    if(subs) setFormData(prev => ({...prev, company_id: id}))
+ 
+    console.log(val)
+  }, [val ,handleUpdate]);
 
-    const obj = newInfo.find((it) => it.id === item.id);
-    const copy = modalData.find((it) => it.id === item.id);
-    obj.child = {
-      ...obj.child,
-      [`item${Object.keys(obj.child).length + Math.random()}`]:
-        copy.child.item.filter(
-          (it) => it.name === "store" || it.name === "quantity"
-        ),
-    };
-
-    setInfo(newInfo);
-    console.log("newInfo", newInfo);
-  };
 
   const handleRemove = (e, index, item, ele) => {
     e.preventDefault();
@@ -1040,6 +898,8 @@ console.log("daaaaaaa1111" , da)
       delete newTax[index];
       setTax({ ...newTax });
       setBVat({ ...newBvat });
+
+    // console.log("rem ds")
     }
     const newData = [...nestedData];
     newData.splice(index, 1);
@@ -1137,14 +997,11 @@ console.log("daaaaaaa1111" , da)
               else if (item.type === "group") {
                 const renderOption = (option, data, sn) => {
                   {
-                    /* console.log(data); */
+                    //  console.log(data);
                   }
 
                   return (
                     <button
-                      // onClick={handleClick}
-                      // tabIndex="-1"
-                      // type="button"
                       className="select-search-option"
                       {...option}
                     >
@@ -1234,6 +1091,7 @@ console.log("daaaaaaa1111" , da)
                                         ? nestedError[index].message
                                         : ""}
                                     </span>
+                       
                                   </div>
                                 );
                               } else {
@@ -1288,89 +1146,38 @@ console.log("daaaaaaa1111" , da)
                               }
                             })}
                             <div>
-                              <label>
-                                <input
-                                  className="add-btn"
-                                  onClick={(e) =>
-                                    handleAddStoreAndQuantity(e, item)
-                                  }
-
-                                  type="button"
-                                  value={t("add")}
-                                />
-                              </label>
+                           
                             </div>
-
-                            {details && (
-                              <>
-                                <div className="input-group tables">
-                                  <label>
-                                    <span>قيمة الضريبة</span>
-                                    <input
-                                      value={
-                                        tax[index] ? tax[index].result : ""
-                                      }
-                                      disabled
-                                    />
-                                  </label>
-                                </div>
-                                <div className="input-group tables">
-                                  <label>
-                                    <span>سعر الضريبة</span>
-                                    <input
-                                      value={
-                                        bVat && bVat[index]
-                                          ? bVat[index].bbTax
-                                          : ""
-                                      }
-                                      disabled
-                                    />
-                                  </label>
-                                </div>
-                                <div className="input-group tables">
-                                  <label>
-                                    <span>المجموع قبل الضريبة</span>
-                                    <input
-                                      value={
-                                        bVat && bVat[index]
-                                          ? bVat[index].bTax
-                                          : ""
-                                      }
-                                      disabled
-                                    />
-                                  </label>
-                                </div>
-                                <div className="input-group tables">
-                                  <label>
-                                    <span>المجموع بعد الخصم</span>
-                                    <input
-                                      value={
-                                        bVat && bVat[index]
-                                          ? bVat[index].bbbTax
-                                          : ""
-                                      }
-                                      disabled
-                                    />
-                                  </label>
-                                </div>
-                              </>
-                            )}
-                          </div>
-                      {nestedData && nestedData.length > 1 && (
-                            <div className="input-group tables bttn">
-                              <label>
-                                <span>{t("action")}</span>
-                                <input
-                                  className="delete-btn"
+            {nestedData && nestedData.length > 1 && (
+                          
+                          <div className="trash">
+                          <BsFillTrashFill
                                   onClick={(ev) =>
                                     handleRemove(ev, index, item, e)
                                   }
                                   type="button"
                                   value={t("delete")}
-                                />
-                              </label>
-                            </div>
+                               
+                               />
+                             </div>
+                          
                           )}
+                          
+                          </div>
+                          {/* {nestedData && nestedData.length > 1 && (
+                          
+                          <div className="trash">
+                          <BsFillTrashFill
+                                  onClick={(ev) =>
+                                    handleRemove(ev, index, item, e)
+                                  }
+                                  type="button"
+                                  value={t("delete")}
+                               
+                               />
+                             </div>
+                          
+                          )} */}
                           {Object.keys(errors).length && errors[index] ? (
                             <span style={{ color: "red" }}>
                               {errors[index].message}
@@ -1396,6 +1203,7 @@ console.log("daaaaaaa1111" , da)
                             }
                           })}
                         {/* </div> */}
+                 
                       </div>
                     )}
                     <button

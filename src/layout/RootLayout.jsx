@@ -70,6 +70,10 @@ const RootLayout = () => {
       name: "اعدادات الفاتورة",
       icon: () => <BiLayer />,
     },
+    "/MoveStores": {
+      name:t("MoveStores") ,
+      icon: () => <BiLayer />,
+    },
     "/categorys": {
       name: t("categories"),
       icon: () => <BiCategory />,
@@ -104,6 +108,10 @@ const RootLayout = () => {
     },
     "/stores": {
       name: t("store"),
+      icon: () => <FaCodeBranch />,
+    },
+    "/MoveStores": {
+      name: t("MoveStores"),
       icon: () => <FaCodeBranch />,
     },
     "/quotations": {

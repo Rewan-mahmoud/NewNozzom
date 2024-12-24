@@ -12,11 +12,7 @@ import { Navigate } from "react-router-dom";
 import useToken from "../../hooks/useToken";
 import { getOptions } from "../../utils/getOption";
 import { useDispatch } from "react-redux";
-import {
-  fetchBranches,
-  postBranch,
-  updateBranch,
-} from "../../features/table/branchSlice";
+
 import {
   fetchStores,
   postStore,
@@ -128,6 +124,17 @@ const Stores = () => {
       type: "text",
       error: t("warnNumber"),
     },
+    {
+      title: t("branch"),
+      name: "branche_id",
+      id: 7,
+      unique: false,
+      required: false,
+      validation: () => {},
+      type: "select",
+      getOptions: () => printOptions("show_branches_all", "Branches"),
+      error: "",
+    },
 
     {
       title: t("arabicAddress"),
@@ -157,17 +164,7 @@ const Stores = () => {
       type: "text",
       error: t("warnEnglish"),
     },
-    {
-      title: t("branch"),
-      name: "branche_id",
-      id: 7,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_branches_all", "Branches"),
-      error: "",
-    },
+
   ];
   const columns = [
     {
@@ -266,7 +263,7 @@ const Stores = () => {
         columns={columns}
         total={total}
         perPage={perPage}
-        fetch={updateBranch}
+        // fetch={updateBranch}
       />
       {modal.open && (
         <Modal

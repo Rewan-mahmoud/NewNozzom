@@ -75,10 +75,6 @@ const clientSlice = createSlice({
 
     
     builder.addCase(postClients.pending, postPend);
-    
-
-
-    
     // builder.addCase(postClients.fulfilled, postFulfilled);
 
     builder.addCase(postClients.fulfilled, (state, action) => {
@@ -93,7 +89,15 @@ const clientSlice = createSlice({
     builder.addCase(postClients.rejected, postRejected);
     //update
     builder.addCase(updateClients.pending, updatePend);
-    builder.addCase(updateClients.fulfilled, updateFulfilled);
+
+    // builder.addCase(updateClients.fulfilled, updateFulfilled);
+    builder.addCase(updateClients.fulfilled, (state, action) => {
+      // console.log(action.payload);
+      state.postLoad = false;
+      state.data.unshift(action.payload.data);
+      state.error = "";
+    });
+
     builder.addCase(updateClients.rejected, updateRejected);
   },
 });

@@ -68,6 +68,7 @@ import CustomerandSupplierStatement from "./pages/CustomerandSupplierStatement/C
 import CustomersVendorsRep from "./pages/customersVendorsRep/customersVendorsRep";
 import Branches from "./pages/Branches/Branches";
 import Stores from "./pages/Stores/Stores";
+import MoveStores from "./pages/MoveStores/MoveStores";
 import Groups from "./pages/Groups/Groups";
 
 
@@ -115,6 +116,10 @@ const router = createBrowserRouter([
       {
         path: "/stores",
         element: <Stores />,
+      },
+      {
+         path:"/MoveStores",
+         element:<MoveStores/>
       },
       {
         path: "/users",

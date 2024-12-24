@@ -33,6 +33,7 @@ import custAndVendSlice from "../features/table/custAndVendSlice";
 import branchSlice from "../features/table/branchSlice";
 import storeSlice from "../features/table/storeSlice";
 import groupSlice from "../features/table/groupSlice";
+import moveStoresSlice from "../features/table/moveStoresSlice";
 
 const store = configureStore({
   reducer: {
@@ -70,6 +71,7 @@ const store = configureStore({
     branch: branchSlice,
     store: storeSlice,
     groups: groupSlice,
+    storeTransfair: moveStoresSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

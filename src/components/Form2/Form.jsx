@@ -33,6 +33,7 @@ const Form = ({
   updateMethod,
   setModal,
   btn,
+  name,
   errors,
   setErrors,
   error,
@@ -89,8 +90,29 @@ const Form = ({
   const [btnLoad, setBtnLoad] = useState(false);
   // const {  } = useToken();
 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   useEffect(() => {
-    // console.log(detail)
+    console.log(detail)
     setInvoiceType(detail.tax_card ? "B2B" : "B2C");
     Object.keys(detail).length &&
       setNation(detail.country === "Saudi Arabia" ? true : false);
@@ -162,12 +184,15 @@ const Form = ({
               });
               setNestedData(initNested);
             } 
-            else if (item.type === "date") {
+            else if 
+            (item.type === "date")
+             {
               data = {
                 ...data,
                 [item.name]: formatDate(res.data.data[0][item.name]),
               };
-            } else if (item.name === "customer_id") {
+            }
+             else if (item.name === "customer_id") {
               setLoading(true);
               data[item.name] = res.data.data[0][item.name];
               if (custom) {
@@ -354,7 +379,8 @@ const Form = ({
     }
   }, [id]);
 
-  // console.log(data)
+
+
 
   useEffect(() => {
     const headers = {
@@ -559,6 +585,8 @@ const Form = ({
     }
   }, []);
 
+
+
   useEffect(() => {
     if (note === "sales") {
       if (details && nestedData && modalValue) {
@@ -669,6 +697,10 @@ const Form = ({
       }
     }
   }, [nestedData, detail, withTax]);
+
+
+
+
 
   useEffect(() => {
     let disable = [];
@@ -1492,6 +1524,117 @@ const Form = ({
     // console.log(formData)
     setFormData((prev) => ({ ...prev, active_tax: withTax.with_tax }));
   }, [withTax]);
+  
+//   useEffect(() => {
+   
+//    if (!name){
+
+
+//       let stores = []
+ 
+ 
+//       const headers = {
+//         Authorization: `Bearer ${token}`,
+//       };
+ 
+//       axios
+//        .post(
+//          `https://cashiry.nozzm.com/api/show_branches_all`,
+//          {},
+//          { headers }
+//        )
+//        .then((res) => {
+//          console.log( "ress" , res)
+//          const dataaa = res.data.data.Branches.filter(
+//          (ele) => ele.id === data.branche_id
+//          );
+//          console.log("daaaaaaa22" , dataaa)
+      
+//          stores = dataaa[0].Stories.map((item) => ({
+//           //  name_en: item.name_en,
+//            name: item.name_ar,
+//            value: item.id,
+//          }));
+//          console.log("storeess" , stores)
+ 
+    
+//          if (dataaa[0]?.same === 0) {
+//           let temp = info.map((ele) => {
+//             if (ele.type === "group") {
+//                 let updatedItems = ele.child.item.map((childEle) => {
+//                     if (childEle.name === "store") {
+//                         return {
+//                             title: t("store"),
+//                             name: "store",
+//                             id: 64,
+//                             type: "select",
+//                             error: "",
+//                             unique: false,
+//                             required: true,
+//                             class: "input-group input-class",
+//                             inputClass: "input-field",
+//                             options: stores,
+//                         };
+//                     }
+//                     return childEle;
+//                 });
+//                 return {
+//                     ...ele,
+//                     child: {
+//                         ...ele.child,
+//                         item: updatedItems
+//                     }
+//                 };
+//             }
+//             return ele;
+//         });
+//         setInfo(temp);
+//       }        
+      
+//         else {
+//           console.log("first");
+//           let temp = info.map((ele) => {
+//             if (ele.type === "group") {
+//                 let updatedItems = ele.child.item.map((childEle) => {
+//                     if (childEle.name === "store") {
+//                         return {
+//                             title: t("store"),
+//                             name: "store",
+//                             id: 64,
+//                             type: "select",
+//                             error: "",
+//                             unique: false,
+//                             required: true,
+//                             class: "input-group input-class",
+//                             inputClass: "input-field",
+//                             options: stores,
+//                         };
+//                     }
+//                     return childEle;
+//                 });
+//                 return {
+//                     ...ele,
+//                     child: {
+//                         ...ele.child,
+//                         item: updatedItems
+//                     }
+//                 };
+//             }
+//             return ele;
+//         });
+//         setInfo(temp);
+        
+//       }
+         
+//        })
+       
+//        .catch((err) => {
+//          console.log(err);
+//        });
+//       }
+  
+//  }, [data.branche_id]);
+
 
   if (bigLoading) return <LoadSpinner />;
   if (!bigLoading) {
@@ -1570,7 +1713,6 @@ const Form = ({
   
         {info.map((item) => {
   if (hidden && !hidden.includes(item.name)) {
-
     if (item.name === "customer_id") {
       return (
         <>

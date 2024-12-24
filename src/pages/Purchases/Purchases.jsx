@@ -84,11 +84,7 @@ const Purchases = () => {
       dataIndex: "invoice_number",
       key: "رقم الفاتورة",
     },
-    {
-      title: t("branch"),
-      dataIndex: "branche_name",
-      key: "branches",
-  },
+
     {
       title: t("vendorName"),
       dataIndex: "customers.name",

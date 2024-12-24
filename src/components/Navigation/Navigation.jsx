@@ -35,35 +35,46 @@ const Navigation = () => {
             children: [],
             perm: "view_home",
           },
-          {
-            title: t("branch"),
-            icon: () => <FaCodeBranch />,
-            id: 15,
-            active: false,
-            // path: "/branches",
-            children: [
-              {
-                title: t("branch"),
-                path: "/branches",
-                id: 0,
-              },
-              {
-                title: t("groups"),
-                path: "/groups",
-                id: 0,
-              },
-            ],
-            perm: "",
-          },
-          {
-            title: t("store"),
-            icon: () => <FaCodeBranch />,
-            id: 16,
-            active: false,
-            path: "/stores",
-            children: [],
-            perm: "",
-          },
+          // {
+          //   title: t("branch"),
+          //   icon: () => <FaCodeBranch />,
+          //   id: 15,
+          //   active: false,
+          //   // path: "/branches",
+          //   children: [
+          //     {
+          //       title: t("branch"),
+          //       path: "/branches",
+          //       id: 0,
+          //     },
+          //     {
+          //       title: t("groups"),
+          //       path: "/groups",
+          //       id: 0,
+          //     },
+          //   ],
+          //   perm: "",
+          // },
+          // {
+          //   title: t("store"),
+          //   icon: () => <FaCodeBranch />,
+          //   id: 16,
+          //   active: false,
+          
+          //   children: [
+          //     {
+          //       title: t("store"),
+          //       path: "/stores",
+          //       id: 0,
+          //     },
+          //     {
+          //       title: t("MoveStores"),
+          //       path: "/MoveStores",
+          //       id: 0,
+          //     },
+          //   ],
+          //   perm: "",
+          // },
           {
             title: t("records"),
             icon: () => <BsRecordCircleFill />,

@@ -243,11 +243,7 @@ const Receipt = () => {
       dataIndex: "invoice_number",
       key: "رقم الفاتورة",
     },
-    {
-      title: t("branch"),
-      dataIndex: "branche_id",
-      key: "branches",
-    },
+ 
     {
       title: t("customerName"),
       dataIndex: "customers.name",

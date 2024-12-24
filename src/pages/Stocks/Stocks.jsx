@@ -34,7 +34,7 @@ const Stocks = () => {
     decription: "",
     date: "",
     items: [],
-    branche_id: "",
+    store_id:[]
   });
   const { t, i18n } = useTranslation();
   const [errors, setErrors] = useState({});
@@ -86,6 +86,17 @@ const Stocks = () => {
 
   const modalData = [
     {
+      title: t("Store"),
+      name: "store_id",
+      id: 3,
+      unique: false,
+      required: true,
+      validation: () => {},
+      type: "select",
+      getOptions: () => printOptions("show_groupbranches_all", "Groupbrances") ,
+      error: "",
+    },
+    {
       title: t("desc"),
       name: "decription",
       id: 0,
@@ -131,15 +142,7 @@ const Stocks = () => {
             required: true,
             type: "text",
           },
-          {
-            name: "store",
-            title: t("store"),
-            id: 2,
-            getOptions: () => printOptions("show_Store_all", "Store"),
-            unique: true,
-            required: false,
-            type: "select",
-          },
+          
         ],
       },
     },
@@ -206,21 +209,6 @@ const Stocks = () => {
 
   const [options, setOptions] = useState([]);
 
-  if (role === "company") {
-    modalData.unshift({
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      // getOptions: () => printOptions("show_branches_all", "Branches"),
-      options,
-      error: "",
-      class: "  input-group ",
-    });
-  }
 
   useEffect(() => {
     printOptions("show_branches_all", "Branches").then((res) => {
@@ -240,9 +228,7 @@ const Stocks = () => {
           btn={
             (!permissions.includes("opeing_blance_create") &&
               role === "employee") ||
-            dataSource.length
-              ? false
-              : role === "admin" ||
+               role === "admin" ||
                 role === "company" ||
                 (role === "employee" && permissions.includes("create_product"))
               ? i18n.language === "ar"

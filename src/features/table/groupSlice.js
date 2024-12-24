@@ -30,7 +30,7 @@ export const fetchGroups = createAsyncThunk(
   async ({ page, token }) => {
     let query = `${apiUrl}group_branches`;
     if (page) {
-      query = `${apiUrl}branches?page=${page}`;
+      query = `${apiUrl}group_branches?page=${page}`;
     }
     const headers = {
       Authorization: `Bearer ${token}`,

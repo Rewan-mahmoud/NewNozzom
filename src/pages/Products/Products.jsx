@@ -21,6 +21,8 @@ const Products = () => {
   const [activeFile, setActiveFile] = useState(false);
   const { role, permissions } = useToken();
   const [fileName, setFileName] = useState(null);
+;
+
   const {
     dataSource,
     dataToFilter,
@@ -55,6 +57,9 @@ const Products = () => {
     group_id: "",
     branche_id:[],
   });
+
+
+
 
   async function printOptions(path, output) {
     try {
@@ -117,11 +122,16 @@ const Products = () => {
       dataIndex: "en_name",
       key: "الاسم باللغة الانجليزية",
     },
-    {
-      title: t("groups"),
-      dataIndex: "group_name",
-      key: "group",
-    },
+  //   {
+  //     title: t("groups"),
+  //     dataIndex: "group_name",
+  //     key: "group",
+  //   },
+  //   {
+  //     title: t("branch"),
+  //     dataIndex: "branche_name",
+  //     key: "branches",
+  // },
     {
       title: t("serial"),
       dataIndex: "cyril",
@@ -197,20 +207,21 @@ const Products = () => {
 
   const [modalData, setModalData] = useState([
 
-    {
-      title: t("groups"),
-      name: "group_id",
-      id: 40,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_groupbranches_all", "Groupbrances"),
-      error: "",
-      // style: { gridColumn: "1/2" },
-      // class: "input-group input-class",
-      // inputClass: "input-field",
-    },
+    // {
+    //   title: t("groups"),
+    //   name: "group_id",
+    //   id: 40,
+    //   unique: false,
+    //   required: false,
+    //   validation: () => {},
+    //   type: "select",
+    //   getOptions: () => printOptions("show_groupbranches_all", "Groupbrances"),
+    //   error: "",
+    //   // style: { gridColumn: "1/2" },
+    //   // class: "input-group input-class",
+    //   // inputClass: "input-field",
+    // },
+
     {
       title: t("type"),
       name: "type",
@@ -560,9 +571,9 @@ const Products = () => {
         modal={modal}
         setModal={setModal}
         searchData={dataSource}
-        setDataToFilter={filterData}
+        // setDataToFilter={filterData}
         resetFilter={handleFilterReset}
-        filter={filterOptions}
+        // filter={filterOptions}
       />
       <Table
         loading={loading}
