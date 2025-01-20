@@ -1,7 +1,12 @@
 import { useState } from "react";
 import Form from "../../components/Form2/Form";
 import useAll from "../../hooks/useAll";
-import { fetchSales, postSales, refundSales, updateSales } from "../../features/table/salesSlice";
+import {
+  fetchSales,
+  postSales,
+  refundSales,
+  updateSales,
+} from "../../features/table/salesSlice";
 import LoadSpinner from "../../components/LoadSpinner/LoadSpinner";
 import { getOptions } from "../../utils/getOption";
 import { getToday } from "../../utils/Date";
@@ -10,7 +15,6 @@ import { useTranslation } from "react-i18next";
 import { fetchSalesR } from "../../features/table/salesRSlice";
 import Modal from "../../components/Modal/Modal";
 import { useSelector } from "react-redux";
-
 
 const AddSales = () => {
   const [modal, setModal] = useState({ open: false, type: "", data: null });
@@ -45,10 +49,9 @@ const AddSales = () => {
     purchase_order_num: "",
     purchase_order: 0,
     items: [],
-    branche_id: branche_id
   });
   const [errors, setErrors] = useState({});
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const modalData = [
     {
       title: "date",
@@ -187,14 +190,14 @@ const AddSales = () => {
           //   title: t("store"),
           //   name: "store",
           //   id: 6,
-          //   type: "select",                   
+          //   type: "select",
           //   error: "",
           //   unique: false,
           //   required: true,
           //   // style: { gridColumn: "1/2" },
           //   class: "input-group input-class",
           //   inputClass: "input-field",
-      
+
           // },
 
           {
@@ -234,16 +237,6 @@ const AddSales = () => {
             type: "checkbox",
             details: true,
           },
-          // {
-          //   name: "reason",
-          //   title: "reason",
-          //   id: 4,
-          //   value: 0,
-          //   unique: false,
-          //   required: true,
-          //   type: "text",
-          //   details: true,
-          // },
         ],
       },
     },
@@ -281,39 +274,7 @@ const AddSales = () => {
       console.log(error);
     }
   }
-  // if (role === "company") {
-  //   modalData.splice(1, 0, {
-  //     title: t("branch"),
-  //     name: "branche_id",
-  //     id: 19,
-  //     unique: false,
-  //     required: false,
-  //     validation: () => {},
-  //     type: "select",
-  //     getOptions: () => printOptions("show_branches_all", "Branches"),
-  //     error: "",
-  //     style: { gridColumn: "1/2" },
-  //     class: "input-group input-class",
-  //     inputClass: "input-field",
-  //   // Add onChange event handler
-  //   });
-  // }else{
-  //   modalData.splice(1, 0, {
-  //     title: t("branch"),
-  //     name: "branche_id",
-  //     id: 19,
-  //     unique: false,
-  //     required: false,
-  //     validation: () => {},
-  //     type: "select",
-  //     disable :true ,
-  //     error: "",
-  //     placeholder:branche_name,
-  //     style: { gridColumn: "1/2" },
-  //     class: "input-group input-class",
-  //     inputClass: "input-field",
-  // })}
-  
+
   const ClientModalData = [
     {
       title: t("vatStatus"),
@@ -325,17 +286,7 @@ const AddSales = () => {
         { name: t("notregistered"), action: 0 },
         { name: t("registered"), action: 1 },
       ],
-      // action: [
-      //   "tax_card",
-      //   "tax_date",
-      //   "street_name",
-      //   "building_number",
-      //   "plot_identification",
-      //   "city",
-      //   "region",
-      //   "postal_number",
-      //   "cr.required",
-      // ],
+
       id: 7,
     },
     {
@@ -459,13 +410,6 @@ const AddSales = () => {
       required: true,
       validation: () => {},
       type: "select",
-      // options: Object.keys(countryInfo)
-      //   // .filter((item) => item === "SA")
-      //   .map((item) => ({
-      //     value: countryInfo[item].name,
-      //     name: countryInfo[item].name,
-      //     id: item,
-      //   })),
       error: "",
       class: " w-100 input-group",
     },
@@ -507,19 +451,6 @@ const AddSales = () => {
         { name: t("establishment"), action: "foundation" },
         { name: t("company"), action: "company" },
       ],
-      // action: [
-      //   "street_name",
-      //   "building_number",
-      //   "plot_identification",
-      //   "city",
-      //   "region",
-      //   "postal_number",
-      // ],
-      // options: [
-      //   { name: "فرد", value: "individual", id: 0 },
-      //   { name: "مؤسسة", value: "foundation", id: 1 },
-      //   { name: "شركة", value: "company", id: 2 },
-      // ],
       error: "",
     },
 
@@ -611,11 +542,9 @@ const AddSales = () => {
       type: "file",
       error: "",
     },
-
   ];
 
   // console.log(anotherDataSource, dataSource, anotherTotal)
-
 
   return (
     <div className="page-wrapper">
@@ -624,7 +553,7 @@ const AddSales = () => {
         <Form
           data={data}
           setFormData={setData}
-          btn={ "+" }
+          btn={"+"}
           modal={modal}
           setModal={setModal}
           totalNum={total}
@@ -649,8 +578,8 @@ const AddSales = () => {
           api={"show_sale_invoice"}
         />
       )}
-            
-            {modal.open && (
+
+      {modal.open && (
         <Modal
           dataSource={dataSource}
           setModal={setModal}
@@ -663,14 +592,11 @@ const AddSales = () => {
           modalType={modal.type}
           modalValue={modal.data}
           error={error}
-          // updateMethod={updateClients}
-          // postLoad={postLoad}
+          updateMethod={updateClients}
+          postLoad={postLoad}
           inputClass={"input"}
-          //api eddition
-          // exludeData={['address_en']}
         />
       )}
-   
     </div>
   );
 };

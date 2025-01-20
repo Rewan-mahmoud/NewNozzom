@@ -380,8 +380,8 @@ const Products = () => {
       id: 10,
       type: "select",
       // options: catOptions,
-      // getOptions: printOptions,
-      // getOptions: () => printOptions("show_category_all", "category"),
+      getOptions: printOptions,
+      getOptions: () => printOptions("show_category_all", "category"),
       error: "",
       unique: false,
       required: true,
@@ -464,80 +464,9 @@ const Products = () => {
     // },
     ]);
 
-    // useEffect(() => {
-    //   let newData = [...modalData];
-    //   if (role === "employee") {
-    //       newData.unshift({
-    //         title: t("groups"),
-    //         name: "group_id",
-    //         id: 21,
-    //         unique: false,
-    //         required: false,
-    //         validation: () => {},
-    //         type: "select",
-    //         // disable: true,
-    //         value:group_id,
-    //         placeholder: group_name,
-    //     });
-    //     newData.splice(1, 0, {
-    //       title: t("branch"),
-    //       name: "branche_id",
-    //       id: 22,
-    //       unique: false,
-    //       required: false,
-    //       validation: () => {},
-    //       type: "select",
-    //       // disable: true,
-    //       value:branche_id,
-    //       placeholder: branche_name,
-    //     });
-    //   } 
-    //   else  {
-    //     newData.unshift({
-    //     title: t("groups"),
-    //     name: "group_id",
-    //     id: 21,
-    //     unique: false,
-    //     required: false,
-    //     validation: () => {},
-    //     type: "select",
-    //     getOptions: () =>
-    //       printOptions("show_groupbranches_all", "Groupbrances"),
-    //     });
-    //   }
-  
-  
-    //   setModalData(newData); // Update the state with the new array
-    // }, []);
 
 
 
- const [options, setOptions] = useState([]);
-
-
- useEffect(() => {
-   printOptions("show_branches_all", "Branches").then((res) => {
-     // options.push()
-     let newOptions = [...options];
-     newOptions.push(...res);
-     setOptions(res);
-   });
- }, []);
-
- const [filterOptions, setFilterOptions] = useState([]);
-
-
- useEffect(() => {
-   printOptions("show_groupbranches_all", "Groupbrances").then((res) => {
-     // options.push()
-     let newOptions = [...filterOptions];
-     newOptions.push(...res);
-     setFilterOptions(res);
-     console.log("setFilterOptions",setFilterOptions)
-   });
- }, []);
-
-  console.log(dataSource); 
 
   if (role === "employee" && !permissions.includes("view_list_products")) {
     return <Navigate to="/categorys" />;

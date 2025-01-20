@@ -186,20 +186,6 @@ const Taxes = () => {
     }
   }
 
-  // if (role === "company") {
-  //   modalData.unshift({
-  //     title: t("branch"),
-  //     name: "branche_id",
-  //     id: 19,
-  //     unique: false,
-  //     required: false,
-  //     validation: () => {},
-  //     type: "select",
-  //     getOptions: () => printOptions("show_branches_all", "Branches"),
-  //     error: "",
-  //     style: { gridColumn: "1/-1" },
-  //   });
-  // }
 
   return (
     <div className="page-wrapper">

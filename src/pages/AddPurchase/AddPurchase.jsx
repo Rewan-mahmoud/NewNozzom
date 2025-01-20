@@ -35,7 +35,7 @@ const AddPurchase = () => {
     files: "",
     invoice_description: "",
     items: [],
-    branche_id: ''
+
   });
   const [errors, setErrors] = useState({});
   const modalData = [
@@ -102,19 +102,7 @@ const AddPurchase = () => {
               printOptions("productandservices_purchers", "Products"),
             details: true,
           },
-          {
-            title: t("store"),
-            name: "store",
-            id: 6,
-            type: "select",                   
-            error: "",
-            unique: false,
-            required: true,
-            // style: { gridColumn: "1/2" },
-            class: "input-group input-class",
-            inputClass: "input-field",
-      
-          },
+       
           {
             name: "description",
             title: "desc",
@@ -181,22 +169,6 @@ const AddPurchase = () => {
     },
   ];
 
-  if (role === "company") {
-    modalData.splice(1, 0, {
-      title: t("branch"),
-      name: "branche_id",
-      id: 19,
-      unique: false,
-      required: false,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_branches_all", "Branches"),
-      error: "",
-      style: { gridColumn: "1/2" },
-      class: "input-group input-class",
-      inputClass: "input-field",
-    });
-  }
   const ClientModalData = [
     {
       title: t("vatStatus"),
