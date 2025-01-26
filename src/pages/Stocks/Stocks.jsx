@@ -33,8 +33,6 @@ const Stocks = () => {
   const [data, setData] = useState({
     decription: "",
     date: "",
-    items: [],
-    store_id:[]
   });
   const { t, i18n } = useTranslation();
   const [errors, setErrors] = useState({});
@@ -86,17 +84,6 @@ const Stocks = () => {
 
   const modalData = [
     {
-      title: t("Store"),
-      name: "store_id",
-      id: 3,
-      unique: false,
-      required: true,
-      validation: () => {},
-      type: "select",
-      getOptions: () => printOptions("show_groupbranches_all", "Groupbrances") ,
-      error: "",
-    },
-    {
       title: t("desc"),
       name: "decription",
       id: 0,
@@ -126,13 +113,14 @@ const Stocks = () => {
         item: [
           {
             name: "product_id",
-            title: t("product"),
+            title: t("productName"),
             id: 0,
             unique: true,
             required: true,
             type: "select",
             getOptions: () =>
-              printOptions("productandservices_purchers", "Products"),
+              printOptions("productandservices_sales", "Products"),
+            details: true,
           },
           {
             name: "quantity",
@@ -142,7 +130,6 @@ const Stocks = () => {
             required: true,
             type: "text",
           },
-          
         ],
       },
     },
@@ -209,7 +196,6 @@ const Stocks = () => {
 
   const [options, setOptions] = useState([]);
 
-
   useEffect(() => {
     printOptions("show_branches_all", "Branches").then((res) => {
       // options.push()
@@ -228,9 +214,9 @@ const Stocks = () => {
           btn={
             (!permissions.includes("opeing_blance_create") &&
               role === "employee") ||
-               role === "admin" ||
-                role === "company" ||
-                (role === "employee" && permissions.includes("create_product"))
+            role === "admin" ||
+            role === "company" ||
+            (role === "employee" && permissions.includes("create_product"))
               ? i18n.language === "ar"
                 ? "+ اضافة ارصدة"
                 : "Add stock opening ballance +"
